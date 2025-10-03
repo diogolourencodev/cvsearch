@@ -240,7 +240,7 @@ async function handleSearch(e) {
                             </span>
                         </li>
                         <li><strong>Published:</strong> ${dataFormat(cveData.published_time) || 'Not available'}</li>
-                        <li><strong>Exploits:<br></strong><a href="https://www.exploit-db.com/search?cve=${filtered.cveId}" target="_blank">ExploitDB</a><br><a href="https://www.offsec.com/blog/${filtered.cveId}" target="_blank">OffSec Blog</a></li>
+                        <li><strong>Possible Exploits:<br></strong><a href="https://www.exploit-db.com/search?cve=${filtered.cveId}" target="_blank">ExploitDB</a><br><a href="https://www.offsec.com/blog/${filtered.cveId}" target="_blank">OffSec Blog</a><br><a href="https://www.cyberhub.blog/cves/${filtered.cveId}" target="_blank">Cyber Hub</a></li>                        
 
                         <li><strong>EPSS Score:</strong> ${filtered.metrics.epssPercentile} 
                             (${filtered.flags.highExploitProbability ? 'High probability' : 'Medium/Low probability'})

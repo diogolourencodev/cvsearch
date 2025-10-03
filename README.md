@@ -67,6 +67,7 @@ Simply enter a CVE ID or keywords in the search box. The web version provides:
 - Shodan CVE Database (https://cvedb.shodan.io)
 - CVE Program (https://www.cve.org)
 - OffSec blog (https://www.offsec.com/)
+- Cyber Hub (https://www.cyberhub.blog/)
 
 ### Technologies Used
 - **CLI**: Python 3 with requests and colorama libraries

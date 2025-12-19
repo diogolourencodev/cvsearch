@@ -41,9 +41,9 @@ A comprehensive tool for searching and analyzing Common Vulnerabilities and Expo
 
 1.  Navigate to the project root.
 
-2.  Install the required Python packages (including Flask):
+2.  Install the required Python packages:
     ```bash
-    pip install flask flasgger requests
+    pip install -r requirements.txt
     ```
 
 3.  Navigate to the `web` directory:

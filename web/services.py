@@ -4,7 +4,6 @@ def search_cve(cve):
     shodanApi = f"https://cvedb.shodan.io/cve/{cve}"
     mitreApi = f"https://cveawg.mitre.org/api/cve/{cve}"
     nistApi = f"https://services.nvd.nist.gov/rest/json/cves/2.0?cveId={cve}"
-    cyberhubCve = f"https://www.cyberhub.blog/api/cves?search=middleware"
 
     mediumSearch = f"https://medium.com/search?q={cve}+exploit"
     cveblogSearch = f"https://www.offsec.com/blog/{cve}"
@@ -33,6 +32,12 @@ def search_cve(cve):
         is_kev = "No"
     else:
         is_kev = "Error on request"
+    
+    dataNist = requests.get(nistApi, headers=headers).json()
+    severity = dataNist['vulnerabilities'][0]['cve']['metrics']['cvssMetricV31'][0]['cvssData']['baseSeverity']
+    attackVector = dataNist['vulnerabilities'][0]['cve']['metrics']['cvssMetricV31'][0]['cvssData']['attackVector']
+    privilegesRequired = dataNist['vulnerabilities'][0]['cve']['metrics']['cvssMetricV31'][0]['cvssData']['privilegesRequired']
+    attackComplexity = dataNist['vulnerabilities'][0]['cve']['metrics']['cvssMetricV31'][0]['cvssData']['attackComplexity']
 
     references = dataShodan['references']
 
@@ -41,6 +46,10 @@ def search_cve(cve):
         "cve": cve,
         "summary": summary,
         "is_kev": is_kev,
+        "severity": severity,
+        "attackComplexity": attackComplexity,
+        "attackVetor": attackVector,
+        "privilegesRequired": privilegesRequired,
         "exploits": [mediumSearch, cveblogSearch, exploitdbSearch, cyberhubSearch],
         "references": references
     }

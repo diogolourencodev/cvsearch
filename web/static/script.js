@@ -69,6 +69,15 @@ function renderResults(data) {
 
 function renderSingleCVE(item) {
     const resultsArea = document.getElementById('resultsArea');
+
+    const getSeverityColor = (severity) => {
+        if (!severity) return 'var(--text-primary)';
+        const s = severity.toLowerCase();
+        if (s === 'critical') return 'var(--danger)';
+        if (s === 'high') return '#ff9800';
+        if (s === 'medium') return '#ffc107';
+        return 'var(--success)';
+    };
     
     // Define exploit sources with their names and icons
     const exploitSources = [
@@ -100,7 +109,22 @@ function renderSingleCVE(item) {
                     <strong style="color: var(--text-secondary); font-size: 0.9rem;">KEV Status:</strong>
                     <div style="font-weight: bold; color: ${item.is_kev === 'Yes' ? 'var(--danger)' : 'var(--success)'}">${item.is_kev}</div>
                 </div>
-                <!-- Add more fields here if backend provides them later (e.g. CVSS, Published Date) -->
+                <div>
+                    <strong style="color: var(--text-secondary); font-size: 0.9rem;">Severity:</strong>
+                    <div style="font-weight: bold; color: ${getSeverityColor(item.severity)}">${item.severity || 'N/A'}</div>
+                </div>
+                <div>
+                    <strong style="color: var(--text-secondary); font-size: 0.9rem;">Attack Vector:</strong>
+                    <div style="font-weight: bold; color: var(--text-primary)">${item.attackVetor || 'N/A'}</div>
+                </div>
+                <div>
+                    <strong style="color: var(--text-secondary); font-size: 0.9rem;">Complexity:</strong>
+                    <div style="font-weight: bold; color: var(--text-primary)">${item.attackComplexity || 'N/A'}</div>
+                </div>
+                <div>
+                    <strong style="color: var(--text-secondary); font-size: 0.9rem;">Privileges:</strong>
+                    <div style="font-weight: bold; color: var(--text-primary)">${item.privilegesRequired || 'N/A'}</div>
+                </div>
             </div>
 
             <p class="summary"><strong>Summary:</strong><br>${item.summary || 'No summary provided.'}</p>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVE Search Tool</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-shield-alt"></i> CVE Search Tool</h1>
+            <p class="subtitle">Vulnerability Intelligence Dashboard</p>
+        </header>
+
+        <main>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Enter CVE-ID (e.g., CVE-2024-1234) or keyword..." autocomplete="off">
+                <button onclick="performSearch()" id="searchBtn"><i class="fas fa-search"></i> Search</button>
+            </div>
+
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Scanning databases...</p>
+            </div>
+
+            <div id="resultsArea" class="results-container">
+                <!-- Results will be injected here via JS -->
+            </div>
+        </main>
+
+        <footer>
+            <div class="credits">
+                <p>Backend developed by <a href="https://github.com/diogolourencodev" target="_blank"><i class="fab fa-github"></i> diogolourencodev</a></p>
+                <p>Frontend designed by <span class="ai-badge"><i class="fas fa-robot"></i> Trae AI</span></p>
+            </div>
+            <div class="tech-stack">
+                <span><i class="fab fa-python"></i> Flask</span>
+                <span><i class="fas fa-database"></i> NVD NIST</span>
+                <span><i class="fas fa-network-wired"></i> Shodan</span>
+                <span><i class="fas fa-bug"></i> Cyberhub</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

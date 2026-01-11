@@ -40,6 +40,3 @@ def search(searchTerm):
         return search_cve(searchTerm)
     else:
         return search_vuln(searchTerm)
-
-if __name__ == '__main__':
-    app.run(debug=True)

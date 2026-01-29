@@ -7,7 +7,7 @@ def search_cve(cve):
 
     mediumSearch = f"https://medium.com/search?q={cve}+exploit"
     cveblogSearch = f"https://www.offsec.com/blog/{cve}"
-    exploitdbSearch = f"https://www.exploit-db.com/search?q={cve}"
+    exploitdbSearch = f"https://www.exploit-db.com/search?q={cve}&cve={cve}"
     cyberhubSearch = f"https://www.cyberhub.blog/cves/{cve}"
     
     headers = {'User-Agent': 'Mozilla/5.0'}
